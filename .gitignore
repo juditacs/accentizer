@@ -38,6 +38,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.pytest_cache
 
 # distribution / packaging
 .Python
@@ -59,3 +60,4 @@ share/python-wheels/
 *.egg
 MANIFEST
 Pipfile.lock
+*.egg-info
