@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+Pyphen = "*"
+"repoze.lru" = "*"
+setuptools = "*"
+
+[dev-packages]
+codespell = "*"
+flake8 = "*"
+ipython = "*"
+pytest = "*"
+wheel = "*"
