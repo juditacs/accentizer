@@ -1,6 +1,7 @@
 from collections import deque
 from string import punctuation
 from os import listdir, path
+import pkg_resources
 
 
 class Hunaccent(object):
@@ -14,12 +15,12 @@ class Hunaccent(object):
     }
     punct = set(punctuation)
 
-    def __init__(self, tree_dir='./hunaccent/tree'):
+    def __init__(self, tree_dir = f"tree"):
         self.load_trees(tree_dir)
 
     def load_trees(self, tree_dir):
         self.trees = {}
-        for fn in listdir(tree_dir):
+        for fn in pkg_resources.resource_listdir("hunaccent", tree_dir):
             self.trees[fn] = Tree(path.join(tree_dir, fn))
         self.window = self.trees['a'].window
 
@@ -67,7 +68,7 @@ class Tree(object):
         self.load_from_file(fn)
 
     def load_from_file(self, fn):
-        with open(fn) as f:
+        with pkg_resources.resource_stream("hunaccent", fn) as f:
             self.read_meta_info(f.readline())
             self.nodes = []
             for l in f:
