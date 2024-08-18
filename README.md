@@ -38,12 +38,6 @@ js file by Emscripten.
 
 ### Install 
 
-Install using pip
-
-```bash
-pip install hunaccent
-```
-
 Install latest version from GitHub
 
 ```bash
