@@ -2,9 +2,24 @@
 
 Accentize Hungarian text. Please note that this libarary **does not** use a vocabulary and it may generate non-existant words.
 
-## Compiling
+
+## C++
+
+### Compiling
 
     g++ hunaccent.cpp -std=c++11 -O3 -Wall -pedantic -o hunaccent
+
+
+### Usage
+
+    $ echo arvizturo tukorfurogep | ./hunaccent
+    árvíztűrő tükörfúrógép
+
+If you call the binary from a different directory, you need to specify the location of the trees:
+
+    $ echo arvizturo tukorfurogep | ./hunaccent/hunaccent hunaccent/tree/
+    árvíztűrő tükörfúrógép
+
 
 ## Compiling to Javascript
 
@@ -19,15 +34,28 @@ at the beginning of `hunaccent.cpp` by removing the double slash, then run
 The `hunaccent.js` and `hunaccent.html` files are all that is needed, the asset is compiled into the
 js file by Emscripten.
 
-## Usage
+## Python
 
-    $ echo arvizturo tukorfurogep | ./hunaccent
-    árvíztűrő tükörfúrógép
+### Install 
 
-If you call the binary from a different directory, you need to specify the location of the trees:
+Install latest version from GitHub
 
-    $ echo arvizturo tukorfurogep | ./hunaccent/hunaccent hunaccent/tree/
-    árvíztűrő tükörfúrógép
+```bash
+git clone https://github.com/juditacs/hunaccent.git
+cd hunaccent
+pip install .
+```
+
+### Usage
+
+```python
+from hunaccent import hunaccent
+
+hunaccent.accentize('arvizturo tukorfurogep')
+hunaccent.accentize('izekre gondoltam')
+
+hunaccent.print_node('a', 24877)
+```
 
 ## Deaccentize input
 

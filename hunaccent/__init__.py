@@ -1,0 +1,1 @@
+from .hunaccent import hunaccent

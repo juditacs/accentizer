@@ -172,7 +172,7 @@ EMSCRIPTEN_BINDINGS(accentizer) {
 int main(int argc, char* argv[]) {
     Accentizer ac;
     if (argc > 1) ac.load(argv[1]);
-    else ac.load("tree");
+    else ac.load("hunaccent/tree");
 
     std::stringstream ss;
     for (std::string line; std::getline(std::cin, line);) {
